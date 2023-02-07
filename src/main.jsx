@@ -8,6 +8,7 @@ import {
 } from "react-router-dom";
 import SplashPage from './pages/splashPage';
 import SessionMaker from './pages/sessionMaker';
+import { ActionPage } from './pages/actionPage';
 
 const router = createBrowserRouter([
   {
@@ -20,6 +21,10 @@ const router = createBrowserRouter([
   {
     path: "/sessionMaker",
     element: <SessionMaker/>
+  },
+  {
+    path: "/actionTime",
+    element: <ActionPage/>
   }
 ]);
 
