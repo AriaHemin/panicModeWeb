@@ -36,7 +36,7 @@ function SessionMaker() {
             case 3:
             return (
                 <>
-                    <div className="p-5 absolute bottom-0 right-0 " >
+                    <div className="p-5 absolute bottom-0 right-0 ">
                             <button className="bg-gray-200 text-black rounded px-5 py-2 mx-1" onClick={goPreviousStep} >back</button>
                             <button className="bg-gray-200 text-black rounded px-5 py-2 mx-1" onClick={()=>{navigate("/actionTime")}} >start</button>
                         </div>
