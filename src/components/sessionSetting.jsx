@@ -1,9 +1,11 @@
-export function PanicModeStep3 (props){
+import { StepsHeader } from "./stepsHeader"
+
+export function SessionSetting (props){
     let brainDumpList = props.brainDumpList
     let setBrainDumpList = props.setBrainDumpList
     return(
         <div className="" >
-            <h1 className="text-xl font-bold">action time</h1>
+            <StepsHeader step={3}/>
             {
                 brainDumpList.map((item)=>{
                     return(

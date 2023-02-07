@@ -1,6 +1,7 @@
 import { useState , useRef } from "react"
+import { StepsHeader } from "./stepsHeader"
 
-export function PanicModeStep1(props) {
+export function BrainDump(props) {
     const ref = useRef(null)
     let brainDumpList = props.brainDumpList
     let setBrainDumpList = props.setBrainDumpList
@@ -19,7 +20,7 @@ export function PanicModeStep1(props) {
         
         
         <div className="" >
-            <h1 className="text-xl font-bold">do a brain dump</h1>
+            <StepsHeader step={1} />
             <div className="overflow-y-auto h-96 p-4 m-2 " >{
                     brainDumpList.map((item)=>{
                         return(

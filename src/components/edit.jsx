@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
+import { StepsHeader } from "./stepsHeader";
 
-export function PanicModeStep2 (props){
+export function Edit (props){
     let brainDumpList = props.brainDumpList
     let setBrainDumpList = props.setBrainDumpList
     function swapElements(arr, i1, i2) {
@@ -61,7 +62,7 @@ export function PanicModeStep2 (props){
     
     return(
         <div className="" >
-            <h1 className="text-xl font-bold">order the tasks</h1>
+            <StepsHeader step={2} />
             {
                 lol
             }

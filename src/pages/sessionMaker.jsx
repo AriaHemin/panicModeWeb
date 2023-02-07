@@ -1,15 +1,16 @@
 import { useEffect, useState } from "react"
 import { useStepper } from "../hooks/useStepper"
-import { PanicModeStep1 } from "../components/panicModeStep1"
-import { PanicModeStep2 } from "../components/panicModestep2"
-import { PanicModeStep3 } from "../components/panicModeStep3"
+import { BrainDump } from "../components/brainDump"
+import { Edit } from "../components/edit"
+import { SessionSetting } from "../components/sessionSetting"
 
 function SessionMaker() {
 	const [brainDumpList, setBrainDumpList] = useState([]);
+    const [step1 , setStep1] = useState()
 	const { currentStep ,step, goNextStep , goPreviousStep , steps} = useStepper([
-        <PanicModeStep1 brainDumpList={brainDumpList} setBrainDumpList={setBrainDumpList} />,
-        <PanicModeStep2  brainDumpList={brainDumpList} setBrainDumpList={setBrainDumpList} />,
-        <PanicModeStep3  brainDumpList={brainDumpList} setBrainDumpList={setBrainDumpList} />
+        <BrainDump  brainDumpList={brainDumpList} setBrainDumpList={setBrainDumpList} />,
+        <Edit  brainDumpList={brainDumpList} setBrainDumpList={setBrainDumpList} />,
+        <SessionSetting  brainDumpList={brainDumpList} setBrainDumpList={setBrainDumpList} />
     ])
 
 
