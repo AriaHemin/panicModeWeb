@@ -5,9 +5,10 @@ import { Edit } from "../components/edit"
 import { SessionSetting } from "../components/sessionSetting"
 import { useNavigate } from "react-router-dom"
 
-function SessionMaker() {
+function SessionMaker(props) {
     const navigate = useNavigate()
 	const [brainDumpList, setBrainDumpList] = useState([]);
+    let setSession = props.setSession
 	const { currentStep ,step, goNextStep , goPreviousStep , steps} = useStepper([
         <BrainDump  brainDumpList={brainDumpList} setBrainDumpList={setBrainDumpList} />,
         <Edit  brainDumpList={brainDumpList} setBrainDumpList={setBrainDumpList} />,
@@ -38,7 +39,7 @@ function SessionMaker() {
                 <>
                     <div className="p-5 absolute bottom-0 right-0 ">
                             <button className="bg-gray-200 text-black rounded px-5 py-2 mx-1" onClick={goPreviousStep} >back</button>
-                            <button className="bg-gray-200 text-black rounded px-5 py-2 mx-1" onClick={()=>{navigate("/actionTime")}} >start</button>
+                            <button className="bg-gray-200 text-black rounded px-5 py-2 mx-1" onClick={()=>{setSession(brainDumpList) ;navigate("/actionTime")}} >start</button>
                         </div>
                 </>
             );

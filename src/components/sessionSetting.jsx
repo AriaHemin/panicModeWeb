@@ -6,7 +6,8 @@ export function SessionSetting (props){
     return(
         <div className="" >
             <StepsHeader step={3}/>
-            {
+            <div className="text-2xl font-bold" >work in progress</div>
+            {/*
                 brainDumpList.map((item)=>{
                     return(
                         <div key={item.key} className="flex flex-row" >
@@ -15,8 +16,8 @@ export function SessionSetting (props){
                         </div>
                     )
                 })
-            
-            }
+                
+            */}
         </div>
     )
 
