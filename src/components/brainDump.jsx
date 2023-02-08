@@ -12,7 +12,7 @@ export function BrainDump(props) {
    
     function addItem (){
         setCount(count + 1)
-        setBrainDumpList([...brainDumpList, {title: userInput, key: count}])
+        setBrainDumpList([...brainDumpList, {title: userInput, key: count, done: false}])
         setUserInput("")
         element.value = ""
     }
@@ -25,14 +25,14 @@ export function BrainDump(props) {
                     brainDumpList.map((item)=>{
                         return(
                             <div key={item.key} className="flex flex-row justify-between" >
-                                <p>{item.title}</p>
+                                <div >{item.title}</div>
                                 
                             </div>
                         )
                     })
                 }</div>
             <div className="flex flex-row justify-between border p-2" >
-                <input className="w-full  p-1 mr-5 " ref={ref} id="userInputElement" onChange={(e)=>{
+                <input className="w-full  p-1 mr-5 bg-[#242424]" ref={ref} id="userInputElement" onChange={(e)=>{
                     setUserInput(e.target.value);
                       
                 }} />

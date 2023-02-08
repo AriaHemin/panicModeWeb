@@ -27,7 +27,7 @@ function App() {
     },
     {
       path: "/actionTime",
-      element: <ActionPage session={session} />
+      element: <ActionPage session={session} setSession={setSession}/>
     }
   ]);
 
