@@ -16,7 +16,7 @@ export function BrainDump(props) {
     return (    
         <div className="" >
             <StepsHeader step={1} />
-            <div className="overflow-y-auto h-96 p-4 m-2 " >{
+            <div className="overflow-y-auto h-[75vh] p-4 m-2 " >{
                     brainDumpList.map((item)=>{
                         return(
                             <div key={item.key} className="flex flex-row justify-between" >
@@ -25,7 +25,7 @@ export function BrainDump(props) {
                         )
                     })
                 }</div>
-            <div className="flex flex-row justify-between p-2" >
+            <div className="w-full flex flex-row justify-between p-5 py-16 absolute bottom-0 right-0" >
                 <input className="w-full h-[30px] rounded-lg text-black bg-white p-1 mr-1   " ref={ref} id="userInputElement" onChange={(e)=>{
                     setUserInput(e.target.value);   
                 }} />
