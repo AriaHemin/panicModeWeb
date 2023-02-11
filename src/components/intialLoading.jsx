@@ -17,7 +17,7 @@ function IntialLoading(props){
             <LoadingAnimation loading={loading} setLoading={setLoading} />
            <div>
             {
-                session.length !== 0 || session !== null ? (<ActionPage/>):(<StartMenu/>)
+                session.length !== 0? (<ActionPage/>):(<StartMenu/>)
             }
            </div>
         </>
