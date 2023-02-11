@@ -1,17 +1,10 @@
-import { useEffect } from "react"
+import { useEffect, useContext } from "react"
 import { useNavigate } from "react-router-dom"
-
+import { SessionContext } from "../SessionContext";
 
 export default function ActionPage(props){
     let navigate = useNavigate()
-    let session = props.session
-    let setSession = props.setSession
-
-    useEffect(()=>{
-        if(session === undefined){
-            navigate("/home")
-        }
-    },[])
+    const {session, setSession} = useContext(SessionContext)
 
     function allTrue(array){
         let allTrue;
@@ -33,17 +26,32 @@ export default function ActionPage(props){
     }
 
     useEffect(()=>{
-        let allTaskDone = allTrue(session.map((item)=>{
-            if (item.done === true){
-                return true
+        console.log(session)
+        if(session.length === 0 || session === undefined){
+            console.log(session)
+            window.localStorage.setItem('session', JSON.stringify([]));
+            navigate("/done")
+        }else{
+           
+            let allTaskDone = allTrue(session.map((item)=>{
+                if (item.done === true){
+                    return true
+                }
+                return false
+            }))
+            
+            if(allTaskDone){
+                window.localStorage.setItem('session', JSON.stringify([]));
+                setSession([])
+                navigate("/done")
+                
+            }else{
+                
+                window.localStorage.setItem('session', JSON.stringify(session));
             }
-            return false
-        }))
-
-
-        if(allTaskDone){
-            navigate("/home")
         }
+
+
     },[session])
 
     
@@ -54,10 +62,9 @@ export default function ActionPage(props){
                 session.map((item)=>{
                     return(
                         <div key={item.key} className="flex flex-row " >
-                            <input type="checkbox" className="bg-[#242424] mx-2" onChange={()=>{
+                            <input type="checkbox" checked={item.done} className="bg-[#242424] mx-2" onChange={()=>{
                                 setSession(session.map((i)=>{
                                     if (i === item){
-                                        console.log(i, item, {...i})
                                         return {...i, done: !item.done}
                                     }
                                     return i

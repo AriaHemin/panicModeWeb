@@ -1,8 +1,11 @@
 import Header from "../components/header";
 import { useNavigate } from "react-router-dom";
+import { useContext, useEffect } from "react";
+import { SessionContext } from "../SessionContext";
 function StartMenu (){
-
+    const {session, setSession} = useContext(SessionContext)
     const navigate = useNavigate();
+    
     return(
         <div>
             <Header/>

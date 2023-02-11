@@ -1,14 +1,15 @@
-import { useEffect, useState } from "react"
+import { useState, useContext } from "react"
 import { useStepper } from "../hooks/useStepper"
 import { BrainDump } from "../components/brainDump"
 import { Edit } from "../components/edit"
 import { SessionSetting } from "../components/sessionSetting"
 import { useNavigate } from "react-router-dom"
+import { SessionContext } from "../SessionContext";
 
 function SessionMaker(props) {
     const navigate = useNavigate()
 	const [brainDumpList, setBrainDumpList] = useState([]);
-    let setSession = props.setSession
+    const {session, setSession} = useContext(SessionContext)
 	const { currentStep ,step, goNextStep , goPreviousStep , steps} = useStepper([
         <BrainDump  brainDumpList={brainDumpList} setBrainDumpList={setBrainDumpList} />,
         <Edit  brainDumpList={brainDumpList} setBrainDumpList={setBrainDumpList} />,
@@ -21,7 +22,7 @@ function SessionMaker(props) {
                 return (
                     <>
                         <div className="p-5 absolute bottom-0 right-0 " >
-                            <button className="bg-gray-200 text-black rounded px-5 py-2 mx-1" onClick={goNextStep} >next</button>
+                            <button className="bg-[#00EF75] text-white  text-md h-[33px] text-xl font-bold rounded px-5 mx-1" onClick={goNextStep} >next</button>
                         </div>
                     </>
                 );
@@ -29,8 +30,8 @@ function SessionMaker(props) {
                 return (
                     <>
                         <div className="p-5 absolute bottom-0 right-0 " >
-                            <button className="bg-gray-200 text-black rounded px-5 py-2 mx-1" onClick={goPreviousStep} >back</button>
-                            <button className="bg-gray-200 text-black rounded px-5 py-2 mx-1" onClick={goNextStep} >next</button>
+                            <button className="bg-black  text-white rounded px-5 h-[33px]  text-xl font-bold mx-1" onClick={goPreviousStep} >back</button>
+                            <button className="bg-[#00EF75] text-white rounded px-5 h-[33px] text-xl font-bold mx-1" onClick={goNextStep} >next</button>
                         </div>
                     </>
                 );
@@ -38,8 +39,8 @@ function SessionMaker(props) {
             return (
                 <>
                     <div className="p-5 absolute bottom-0 right-0 ">
-                            <button className="bg-gray-200 text-black rounded px-5 py-2 mx-1" onClick={goPreviousStep} >back</button>
-                            <button className="bg-gray-200 text-black rounded px-5 py-2 mx-1" onClick={()=>{setSession(brainDumpList) ;navigate("/actionTime")}} >start</button>
+                            <button className="bg-black text-white rounded px-5 h-[33px] text-xl font-bold mx-1" onClick={goPreviousStep} >back</button>
+                            <button className="bg-[#00EF75] text-white rounded px-5 h-[33px] text-xl font-bold mx-1" onClick={()=>{setSession(brainDumpList) ;  navigate("/actionTime")}} >start</button>
                         </div>
                 </>
             );

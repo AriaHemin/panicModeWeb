@@ -31,12 +31,12 @@ export function BrainDump(props) {
                         )
                     })
                 }</div>
-            <div className="flex flex-row justify-between border p-2" >
-                <input className="w-full  p-1 mr-5 bg-[#242424]" ref={ref} id="userInputElement" onChange={(e)=>{
+            <div className="flex flex-row justify-between p-2" >
+                <input className="w-full h-[30px] rounded-lg text-black bg-white p-1 mr-1   " ref={ref} id="userInputElement" onChange={(e)=>{
                     setUserInput(e.target.value);
                       
                 }} />
-                <button className="mx-1" onClick={addItem}>add</button>
+                <button className="mx-1 bg-[#00EF75] rounded-lg w-[30px] h-[30px] " onClick={addItem}>+</button>
             </div>
         </div>
     )
