@@ -1,6 +1,5 @@
 import '../breatingAnimation.css'
-import { useEffect, useState } from "react";
-
+import { useEffect } from "react";
 function LoadingAnimation(props){
     let loading = props.loading
     let setLoading = props.setLoading
@@ -10,7 +9,6 @@ function LoadingAnimation(props){
         }, 5000);
         return () => clearTimeout(timer);
     }, []);
-    
     return(
         <>{
             loading ? (
@@ -32,9 +30,4 @@ function LoadingAnimation(props){
         </>
     )
 }
-
-
 export default LoadingAnimation;
-
-
-

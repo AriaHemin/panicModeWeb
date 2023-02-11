@@ -1,4 +1,4 @@
-import { useEffect, useContext, useState } from "react";
+import { useEffect, useContext } from "react";
 import { SessionContext } from "../SessionContext";
 import ActionPage from "../pages/actionPage";
 import StartMenu from "../pages/startMenu";
@@ -6,8 +6,6 @@ import LoadingAnimation from "./loadingAnimation";
 function IntialLoading(props){
     let loading = props.loading
     let setLoading = props.setLoading
-    
-
     const {session, setSession} = useContext(SessionContext)
     const items = JSON.parse(window.localStorage.getItem('session'));
     useEffect(()=>{
@@ -25,5 +23,4 @@ function IntialLoading(props){
         </>
     )
 }
-
 export default IntialLoading;

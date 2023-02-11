@@ -1,11 +1,9 @@
 import { useEffect, useContext } from "react"
 import { useNavigate } from "react-router-dom"
 import { SessionContext } from "../SessionContext";
-
 export default function ActionPage(props){
     let navigate = useNavigate()
     const {session, setSession} = useContext(SessionContext)
-
     function allTrue(array){
         let allTrue;
         array.map((item)=>{
@@ -24,7 +22,6 @@ export default function ActionPage(props){
         })
         return allTrue 
     }
-
     useEffect(()=>{
         console.log(session)
         if(session.length === 0 || session === undefined){
@@ -50,12 +47,7 @@ export default function ActionPage(props){
                 window.localStorage.setItem('session', JSON.stringify(session));
             }
         }
-
-
     },[session])
-
-    
-    
     return(
         <div>
             {session?
@@ -75,8 +67,6 @@ export default function ActionPage(props){
                     )
                 })
             : null}
-        </div>
-        
+        </div>   
     )
-
 }

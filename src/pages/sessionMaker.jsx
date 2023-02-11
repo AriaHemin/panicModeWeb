@@ -5,7 +5,6 @@ import { Edit } from "../components/edit"
 import { SessionSetting } from "../components/sessionSetting"
 import { useNavigate } from "react-router-dom"
 import { SessionContext } from "../SessionContext";
-
 function SessionMaker(props) {
     const navigate = useNavigate()
 	const [brainDumpList, setBrainDumpList] = useState([]);
@@ -15,7 +14,6 @@ function SessionMaker(props) {
         <Edit  brainDumpList={brainDumpList} setBrainDumpList={setBrainDumpList} />,
         <SessionSetting  brainDumpList={brainDumpList} setBrainDumpList={setBrainDumpList} />
     ])
-
     function renderSwitch(step){
         switch(step) {
             case 1:
@@ -48,7 +46,6 @@ function SessionMaker(props) {
             return <h1 className="bg-red-300" >bro {step}</h1>;
         }
       }
-
   	return (
     <div className="fixed inset-0 w-screen h-screen ">
         <div className="p-5" >
@@ -58,5 +55,4 @@ function SessionMaker(props) {
     </div>
   )
 }
-
 export default SessionMaker;

@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react"
 import { StepsHeader } from "./stepsHeader";
-
 export function Edit (props){
     let brainDumpList = props.brainDumpList
     let setBrainDumpList = props.setBrainDumpList
@@ -38,9 +37,7 @@ export function Edit (props){
                 </div>
             )
         }))
-        
     },[count])
-    
     function moveUp(item){
         let index = brainDumpList.indexOf(item)
         if(index > 0){
@@ -48,18 +45,13 @@ export function Edit (props){
             setCount(count + 1)
         }
     }
-    
     function moveDown(item){
         let index = brainDumpList.indexOf(item)
         if(index < brainDumpList.length - 1){
             setBrainDumpList(swapElements(brainDumpList, index , index + 1))
-            setCount(count + 1) 
-            
-        }
-        
+            setCount(count + 1)    
+        }  
     }
-    
-    
     return(
         <div className="" >
             <StepsHeader step={2} />
@@ -68,5 +60,4 @@ export function Edit (props){
             }
         </div>
     )
-
 }
