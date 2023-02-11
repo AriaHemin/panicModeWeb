@@ -1,7 +1,7 @@
 import { useEffect, useContext } from "react"
 import { useNavigate } from "react-router-dom"
 import { SessionContext } from "../SessionContext";
-export default function ActionPage(props){
+export default function ActionPage(){
     let navigate = useNavigate()
     const {session, setSession} = useContext(SessionContext)
     function allTrue(array){
@@ -18,7 +18,6 @@ export default function ActionPage(props){
                     allTrue = false
                 }
             }
-
         })
         return allTrue 
     }

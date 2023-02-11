@@ -9,7 +9,7 @@ function IntialLoading(props){
     const {session, setSession} = useContext(SessionContext)
     const items = JSON.parse(window.localStorage.getItem('session'));
     useEffect(()=>{
-        items === undefined ? setSession([]) : setSession(items)
+        items === undefined || items === null ? setSession([]) : setSession(items)
         console.log(session, items)
       },[])
     return(
