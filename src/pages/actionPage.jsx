@@ -9,14 +9,9 @@ export default function ActionPage(){
         array.map((item)=>{
             if(item === true){
                 allTrue = true
+                console.log()
             }else if(item === false){
                 allTrue = false
-            }else if(array.indexOf(item) === array.length - 1){
-                if(item === true){
-                    allTrue = true
-                }else if(item === false){
-                    allTrue = false
-                }
             }
         })
         return allTrue 
@@ -24,25 +19,21 @@ export default function ActionPage(){
     useEffect(()=>{
         console.log(session)
         if(session.length === 0 || session === undefined){
-            console.log(session)
-            window.localStorage.setItem('session', JSON.stringify([]));
-            navigate("/done")
+            const items = JSON.parse(window.localStorage.getItem('session'));
+            items === undefined || items === null ? setSession([]) : setSession(items)
+            
         }else{
-           
             let allTaskDone = allTrue(session.map((item)=>{
                 if (item.done === true){
                     return true
                 }
                 return false
             }))
-            
             if(allTaskDone){
                 window.localStorage.setItem('session', JSON.stringify([]));
                 setSession([])
                 navigate("/done")
-                
             }else{
-                
                 window.localStorage.setItem('session', JSON.stringify(session));
             }
         }
@@ -59,7 +50,7 @@ export default function ActionPage(){
                     session.map((item)=>{
                         return(
                             <div key={item.key} className="flex flex-row " >
-                                <input type="checkbox" checked={item.done} className="bg-[#242424] mx-2" onChange={()=>{
+                                <input  type="checkbox" checked={item.done} className="mx-2 cursor-pointer" onChange={()=>{
                                     setSession(session.map((i)=>{
                                         if (i === item){
                                             return {...i, done: !item.done}
