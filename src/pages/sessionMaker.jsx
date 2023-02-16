@@ -20,7 +20,14 @@ function SessionMaker(props) {
                 return (
                     <>
                         <div className="p-5 absolute bottom-0 right-0 " >
-                            <button className="bg-[#00EF75] text-white  text-md h-[33px] text-xl font-bold rounded px-5 mx-1" onClick={goNextStep} >next</button>
+                            <button className="bg-[#00EF75] text-white  text-md h-[33px] text-xl font-bold rounded px-5 mx-1" onClick={()=>{
+                                if (brainDumpList.length === 0){
+                                    window.alert("please add tasks")
+                                    return  
+                                }else{
+                                    goNextStep()
+                                }}}
+                                >next</button>
                         </div>
                     </>
                 );
@@ -38,7 +45,10 @@ function SessionMaker(props) {
                 <>
                     <div className="p-5 absolute bottom-0 right-0 ">
                             <button className="bg-black text-white rounded px-5 h-[33px] text-xl font-bold mx-1" onClick={goPreviousStep} >back</button>
-                            <button className="bg-[#00EF75] text-white rounded px-5 h-[33px] text-xl font-bold mx-1" onClick={()=>{setSession(brainDumpList) ;  navigate("/actionTime")}} >start</button>
+                            <button className="bg-[#00EF75] text-white rounded px-5 h-[33px] text-xl font-bold mx-1" onClick={()=>{
+                                
+                                setSession(brainDumpList) ;  navigate("/actionTime")
+                            }} >start</button>
                         </div>
                 </>
             );

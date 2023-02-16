@@ -21,8 +21,7 @@ export function SessionSetting (){
     return(
         <div className="" >
             <StepsHeader step={3}/>
-            <div className="text-2xl font-bold" >work in progress</div>
-            <div className="overflow-y-auto  h-[75vh] " >
+            <div className="overflow-y-auto h-[75vh] " >
                 {
                     settingSections.map((settingSection)=>{
                         return(
