@@ -1,35 +1,20 @@
-import { useState } from "react"
-import DropDown from "./dropDown"
+
 import { StepsHeader } from "./stepsHeader"
 
-export function SessionSetting (){
-    const [settingSections , setSettingSections] = useState([
-        {
-            name: "timer",
-            element : <div>hello</div>,
-            key: 1
-        },{
-            name: "reward",
-            element : <div>hello</div>,
-            key: 2
-        },{
-            name: "punishment",
-            element : <div>hello</div>,
-            key: 3
-        }
-    ])
+export function SessionSetting (props){
+    let brainDumpList = props.brainDumpList
     return(
         <div className="" >
             <StepsHeader step={3}/>
-            <div className="overflow-y-auto h-[75vh] " >
-                {
-                    settingSections.map((settingSection)=>{
+            <div className="overflow-y-auto h-[75vh] py-5 my-5 " >
+                <div className="text-2xl font-bold">here is a list of tasks to do! are your ready?</div>
+                {brainDumpList.map((item)=>{
                         return(
-                            <DropDown key={settingSection.key} name={settingSection.name} element={settingSection.element} />
+                            <div key={item.key} className="">{item.title}</div>
                         )
-                    })
-                }
-                
+                    })}
+
+               
             </div>
         </div>
     )

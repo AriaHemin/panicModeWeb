@@ -39,7 +39,7 @@ export function StepsHeader(props){
                     </svg>
                     </div>
                     <div className="h-[50px] flex items-center ">
-                        <div className="font-bold text-4xl text-white " >session settings</div>
+                        <div className="font-bold text-4xl text-white " >are you ready?</div>
                     </div>
                 </>
             );
