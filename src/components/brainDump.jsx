@@ -7,7 +7,8 @@ export function BrainDump(props) {
     const [userInput , setUserInput] = useState()
     const [count, setCount] = useState(0)
     const element = ref.current
-    function addItem (){
+    function addItem (e){
+        e.preventDefault()
         setCount(count + 1)
         setBrainDumpList([...brainDumpList, {title: userInput, key: count, done: false}])
         setUserInput("")
@@ -25,12 +26,12 @@ export function BrainDump(props) {
                         )
                     })
                 }</div>
-            <div className="w-full flex flex-row justify-between p-5 py-16 absolute bottom-0 right-0" >
+            <form className="w-full flex flex-row justify-between p-5 py-16 absolute bottom-0 right-0" >
                 <input className="w-full h-[30px] rounded-lg text-black bg-white p-1 mr-1   " ref={ref} id="userInputElement" onChange={(e)=>{
                     setUserInput(e.target.value);   
                 }} />
-                <button className="mx-1 bg-[#00EF75] rounded-lg w-[30px] h-[30px] " onClick={addItem}>+</button>
-            </div>
+                <button className="mx-1 bg-[#00EF75] rounded-lg w-[30px] h-[30px] " onClick={(e)=>{addItem(e)}}>+</button>
+            </form>
         </div>
     )
 }
